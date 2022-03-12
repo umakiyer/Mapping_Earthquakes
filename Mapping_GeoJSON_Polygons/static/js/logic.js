@@ -1,9 +1,9 @@
 // Add a tile layer (the background map image) to our map
 // We use the addTo method to add objects to our map
-let lights = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+let streets = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
-    id: 'mapbox/light-v10',
+    id: 'mapbox/streets-v11',
     tileSize: 512,
     zoomOffset: -1,
     accessToken: API_KEY
@@ -11,10 +11,10 @@ let lights = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y
 
 // Add a tile layer (the background map image) to our map
 // We use the addTo method to add objects to our map
-let dark = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+let satelliteStreets = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
-    id: 'mapbox/dark-v10',
+    id: 'mapbox/satellite-streets-v11',
     tileSize: 512,
     zoomOffset: -1,
     accessToken: API_KEY
@@ -22,16 +22,16 @@ let dark = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?
 
 // Create a base layer that holds both maps.
 let baseMaps = {
-  Light: lights,
-  Dark: dark
+  "Street": streets,
+  "Satellite Streets": satelliteStreets
 };
 
 // / Create our initial map object
 // Set the longitude, latitude, and the starting zoom level
 var myMap = L.map("mapid", {
-  center: [44.0, -80.0],
-  zoom: 2,
-  layers: [dark]
+  center: [43.7,-79.3],
+  zoom: 11,
+  layers: [satelliteStreets]
 });
 
 // Pass our map layers into our layers control and add the layers control to the map.
