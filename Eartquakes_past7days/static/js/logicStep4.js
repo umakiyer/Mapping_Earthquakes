@@ -107,5 +107,8 @@ L.geoJson(data, {
     onEachFeature: function(feature, layer){
         layer.bindPopup("Magnitude" + feature.properties.mag + "<br> Location: "+feature.properties.place);
     }
-}).addTo(myMap);
+}).addTo(earthquakes);
+
+// Then we add the eartquake layer to our map.
+earthquakes.addTo(myMap);
 });
