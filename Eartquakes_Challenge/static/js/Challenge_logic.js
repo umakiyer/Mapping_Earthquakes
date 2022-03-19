@@ -132,7 +132,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
     function styleInfo(feature) {
       return {
         opacity: 1,
-        fillOpacity: 1,
+        fillOpacity: .2,
         fillColor: getColor(feature.properties.mag),
         color: "#000000",
         radius: getRadius(feature.properties.mag),
